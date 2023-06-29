@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обчислення суми</title>
+  <style>
+    /* Стилізація форми */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label,
+    input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form id="sumForm">
+    <h2>Обчислення суми</h2>
+    <label for="num1">Число 1:</label>
+    <input type="number" id="num1" required>
+
+    <label for="num2">Число 2:</label>
+    <input type="number" id="num2" required>
+
+    <button type="submit">Обчислити суму</button>
+  </form>
+
+  <script>
+    // Отримання посилань на елементи форми
+    const form = document.getElementById('sumForm');
+    const num1Input = document.getElementById('num1');
+    const num2Input = document.getElementById('num2');
+
+    // Обробник події відправки форми
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Зупинка автоматичного відправлення форми
+
+      // Отримання значень з полів форми
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+
+      // Обчислення суми
+      const sum = num1 + num2;
+
+      // Очищення полів форми
+      num1Input.value = '';
+      num2Input.value = '';
+
+      // Виведення результату в діалогове вікно
+      alert('Сума: ' + sum);
+
+      // Виведення результату в окреме поле форми
+      // const resultInput = document.createElement('input');
+      // resultInput.value = sum;
+      // form.appendChild(resultInput);
+    });
+  </script>
+</body>
+</html>
